@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="pt">
 	<head>
-		<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/png" href="/images/PoliticaPT Logo Simple.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,62 +52,44 @@
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 		<style>
-			/* Load local fonts */
-			@font-face {
-				font-family: "The Serif";
-				src: url("./fonts/theserifbold-plain.otf") format("opentype");
-				font-weight: 700;
-				font-style: normal;
-				font-display: swap;
-			}
-			@font-face {
-				font-family: "The Sans";
-				src: url("./fonts/PT_Sans-Web-Regular.ttf") format("truetype");
-				font-weight: 400;
-				font-style: normal;
-				font-display: swap;
-			}
-			@font-face {
-				font-family: "The Sans";
-				src: url("./fonts/PT_Sans-Web-Bold.ttf") format("truetype");
-				font-weight: 700;
-				font-style: normal;
-				font-display: swap;
-			}
+			/* Load local fonts (if present) */
+			@font-face { font-family: "The Serif"; src: url("./fonts/theserifbold-plain.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+			@font-face { font-family: "The Sans"; src: url("./fonts/PT_Sans-Web-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+			@font-face { font-family: "The Sans"; src: url("./fonts/PT_Sans-Web-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 
-					/* Theme variables (updated per request) */
-					:root[data-theme="light"]{
-						--bg: #ffffff;           /* Background */
-						--text: #121212;         /* Text */
-						--primary: #242424;      /* Primary */
-						--secondary: #424242;    /* Secondary */
-						--accent: #b8b8b8;       /* Accent */
-						--btn-hover-bg: #f5f5f5;
-						--btn-hover-color: #666666;
-						--btn-bg: rgba(36,36,36,0.04);
-						--btn-color: #424242;
-						--btn-border: rgba(36,36,36,0.12);
-					}
-					:root[data-theme="dark"]{
-						--bg: #000000;           /* Background */
-						--text: #ededed;         /* Text */
-						--primary: #dbdbdb;      /* Primary */
-						--secondary: #bdbdbd;    /* Secondary */
-						--accent: #474747;       /* Accent */
-						--btn-hover-bg: #333333;
-						--btn-hover-color: #a0a0a0;
-						--btn-bg: rgba(255,255,255,0.03);
-						--btn-color: #bdbdbd;
-						--btn-border: rgba(255,255,255,0.06);
-					}
+			/* Theme variables (updated per request) */
+			:root[data-theme="light"]{
+				--bg: #ffffff;           /* Background */
+				--text: #121212;         /* Text */
+				--primary: #242424;      /* Primary */
+				--secondary: #424242;    /* Secondary */
+				--accent: #b8b8b8;       /* Accent */
+				--btn-hover-bg: #f5f5f5;
+				--btn-hover-color: #666666;
+				--btn-bg: rgba(36,36,36,0.04);
+				--btn-color: #424242;
+				--btn-border: rgba(36,36,36,0.12);
+			}
+			:root[data-theme="dark"]{
+				--bg: #000000;           /* Background */
+				--text: #ededed;         /* Text */
+				--primary: #dbdbdb;      /* Primary */
+				--secondary: #bdbdbd;    /* Secondary */
+				--accent: #474747;       /* Accent */
+				--btn-hover-bg: #333333;
+				--btn-hover-color: #a0a0a0;
+				--btn-bg: rgba(255,255,255,0.03);
+				--btn-color: #bdbdbd;
+				--btn-border: rgba(255,255,255,0.06);
+			}
 
 			/* Basic reset & layout */
 			*{box-sizing:border-box}
 			html,body{height:100%}
-					body{
+			body{
 				margin:0;
 				background:var(--bg);
-						color:var(--text);
+				color:var(--text);
 				font-family: "The Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 				-webkit-font-smoothing:antialiased;
 				-moz-osx-font-smoothing:grayscale;
@@ -119,279 +100,172 @@
 				padding:24px;
 			}
 
-			main{
-				width:100%;
-				max-width:980px;
-				text-align:center;
+			/* Demo banner styles - now using theme variables */
+			:root{ --demo-banner-height: 60px; }
+
+			.demo-banner{ 
+				position:fixed; 
+				inset:0 0 auto 0; 
+				height:var(--demo-banner-height); 
+				display:flex; 
+				align-items:center; 
+				justify-content:center; 
+				gap:12px; 
+				padding:0 16px; 
+				background:var(--bg); 
+				border-bottom:1px solid var(--accent); 
+				z-index:10000; 
+				box-shadow:0 2px 4px rgba(0,0,0,0.08); 
+				font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; 
+			}
+			.demo-banner__text{ 
+				color:var(--text); 
+				font-size:0.95rem; 
+			}
+			.demo-banner__btn{ 
+				display:inline-flex; 
+				align-items:center; 
+				justify-content:center; 
+				padding:10px 20px; 
+				background:var(--btn-bg); 
+				color:var(--btn-color); 
+				border:1px solid var(--btn-border);
+				border-radius:8px; 
+				text-decoration:none; 
+				cursor:pointer; 
+				font-size:0.9rem;
+				font-weight:500;
+				transition:all 0.2s ease;
+			}
+			.demo-banner__btn:hover{ 
+				background:var(--btn-hover-bg); 
+				color:var(--btn-hover-color);
+				transform:translateY(-1px); 
 			}
 
-					.logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-					#logo{
-						width:100%;
-						height:auto;
-						max-width:520px; /* base max */
-						display:block;
-						object-fit:contain;
-						padding-bottom: 10px;
-						opacity:0;
-						transition:opacity 240ms ease-in-out;
-					}
+			/* rest of page styles (logo, headings, controls) */
+			.logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+			#logo{ width:100%; height:auto; max-width:520px; display:block; object-fit:contain; padding-bottom:10px; opacity:0; transition:opacity 240ms ease-in-out; }
+			.controls{ display:flex; gap:12px; justify-content:center; margin-top:18px; align-items:center; }
+			.controls button{ width:40px; height:40px; display:inline-flex; justify-content:center; align-items:center; padding:0; background:var(--btn-bg); color:var(--btn-color); border:1px solid var(--btn-border); border-radius:8px; cursor:pointer; }
+			.controls button:hover{ background:var(--btn-hover-bg); color:var(--btn-hover-color); }
+			h1{ margin:0 0 10px 0; font-family: "The Serif", serif; font-weight:700; line-height:1.05; font-size:clamp(28px, 6vw, 56px); color:var(--primary); letter-spacing:0.4px; }
+			.subtitle{ margin:0; color:var(--secondary); font-size:clamp(14px, 2.5vw, 20px); }
+			.text-wrap{ margin:0 auto; max-width:420px; }
 
-							/* Controls - centered below text */
-							.controls{
-								display:flex;
-								gap:12px;
-								justify-content:center;
-								margin-top:18px;
-								align-items:center;
-							}
-							.controls button{
-								width:40px;
-								height:40px;
-								display:inline-flex;
-								justify-content:center;
-								align-items:center;
-								padding:0;
-								background:var(--btn-bg);
-								color:var(--btn-color);
-								border:1px solid var(--btn-border);
-								border-radius:8px;
-								cursor:pointer;
-							}
-							.controls button:hover{
-								background:var(--btn-hover-bg);
-								color:var(--btn-hover-color);
-							}
-
-					h1{
-				margin:0 0 10px 0;
-				font-family: "The Serif", serif;
-				font-weight:700;
-				line-height:1.05;
-						font-size:clamp(28px, 6vw, 56px);
-						color:var(--primary);
-				letter-spacing:0.4px;
+			@media (max-width:720px){ 
+				.logo-wrap{margin-bottom:20px} 
+				#logo{max-width:260px} 
+				.text-wrap{max-width:90%;} 
+				.controls button{font-size:12px;padding:7px 9px} 
+				.demo-banner{flex-direction:column;gap:8px;height:auto;padding:12px 16px;}
+				.demo-banner__text{font-size:0.85rem;text-align:center;}
+				.demo-banner__btn{font-size:0.85rem;padding:8px 16px;}
 			}
-
-					.subtitle{
-						margin:0;
-						color:var(--secondary);
-						font-size:clamp(14px, 2.5vw, 20px);
-					}
-
-					/* Text container to control width relative to image */
-					.text-wrap{
-						margin:0 auto;
-						max-width:420px; /* smaller than image width on larger screens */
-					}
-
-			/* Make content narrow on small screens so vertical logos look nice */
-					@media (max-width:720px){
-						.logo-wrap{margin-bottom:20px}
-						#logo{max-width:260px}
-						.text-wrap{max-width:90%;}
-						.controls button{font-size:12px;padding:7px 9px}
-					}
-
-					@media (min-width:980px){
-						/* On larger screens make image wider and ensure text max width is smaller than it */
-						#logo{max-width:720px}
-						.text-wrap{max-width:480px}
-					}
-
-			/* Respect reduced motion */
-			@media (prefers-reduced-motion: reduce){
-				*{transition:none!important}
-			}
-			</style>
+			@media (min-width:980px){ #logo{max-width:720px} .text-wrap{max-width:480px} }
+			@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+		</style>
 	</head>
 	<body>
-				<!-- controls removed from top-right; buttons will be placed below the text inside <main> -->
-				<main>
+		<!-- Demo banner with theme adaptation -->
+		<div class="demo-banner" role="region" aria-label="Banner de demonstração">
+			<div class="demo-banner__text">Esta é apenas uma <strong>demo</strong>. Certas funcionalidades estão desativadas.</div>
+			<a class="demo-banner__btn" href="/">Voltar ao Portfólio</a>
+		</div>
+
+		<main>
 			<div class="logo-wrap">
-				<!-- start with tiny transparent placeholder to avoid flash of the simple logo; real image will be preloaded and swapped in JS -->
 				<img id="logo" alt="Logo" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='720' height='180'></svg>">
 			</div>
-				<hr class="divider" style="width:70%;border:none;height:2px;background:var(--accent);margin:14px auto 18px;">
-					<div class="text-wrap">
-						<h1>Serviço Indisponível</h1>
-						<p class="subtitle">Tente novamente mais tarde.</p>
-						<div class="controls" role="group" aria-label="Controles da página">
-							<button id="themeToggle" aria-label="Alternar tema" title="Alternar tema"></button>
-							<button id="reloadBtn" aria-label="Recarregar página" title="Recarregar página"></button>
-						</div>
-					</div>
+			<hr class="divider" style="width:70%;border:none;height:2px;background:var(--accent);margin:14px auto 18px;">
+			<div class="text-wrap">
+				<h1>Serviço Indisponível</h1>
+				<p class="subtitle">Tente novamente mais tarde.</p>
+				<div class="controls" role="group" aria-label="Controles da página">
+					<button id="themeToggle" aria-label="Alternar tema" title="Alternar tema"></button>
+					<button id="reloadBtn" aria-label="Recarregar página" title="Recarregar página"></button>
+				</div>
+			</div>
 		</main>
 
 		<script>
 			(function(){
-			// Image map: variant -> theme -> file
-				const images = {
-					horizontal: {
-						light: './images/PoliticaPT Horizontal Logo V2 For Light Mode.png',
-						dark:  './images/PoliticaPT Horizontal Logo V2 For Dark Mode.png'
-					},
-					vertical: {
-						light: './images/PoliticaPT Vertical Logo V2 For Light Mode.png',
-						dark:  './images/PoliticaPT Vertical Logo V2 For Dark Mode.png'
-					},
-					simple: './images/PoliticaPT Logo Simple.png'
-				};
+			const images = {
+				horizontal: {
+					light: './images/PoliticaPT Horizontal Logo V2 For Light Mode.png',
+					dark:  './images/PoliticaPT Horizontal Logo V2 For Dark Mode.png'
+				},
+				vertical: {
+					light: './images/PoliticaPT Vertical Logo V2 For Light Mode.png',
+					dark:  './images/PoliticaPT Vertical Logo V2 For Dark Mode.png'
+				},
+				simple: './images/PoliticaPT Logo Simple.png'
+			};
 
-				const logoEl = document.getElementById('logo');
+			const logoEl = document.getElementById('logo');
 
-				function getStoredTheme(){
-					try{
-						const v = localStorage.getItem('theme');
-						if(v === 'dark' || v === 'light') return v;
-					}catch(e){/* ignore */}
-					return null;
+			function getStoredTheme(){
+				try{ const v = localStorage.getItem('theme'); if(v === 'dark' || v === 'light') return v; }catch(e){}
+				return null;
+			}
+
+			function getSystemTheme(){ return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+
+			function applyTheme(){
+				const stored = getStoredTheme();
+				const theme = stored || getSystemTheme();
+				document.documentElement.setAttribute('data-theme', theme);
+				return theme;
+			}
+
+			function getVariant(){ return window.innerWidth < 720 ? 'vertical' : 'horizontal'; }
+
+			function updateLogo(){
+				const theme = document.documentElement.getAttribute('data-theme') || applyTheme();
+				const variant = getVariant();
+				let src = (images[variant] && images[variant][theme]) ? images[variant][theme] : images.simple;
+				if(logoEl.getAttribute('data-src') === src) return;
+				try{ logoEl.style.opacity = '0'; }catch(e){}
+				const img = new Image();
+				img.onload = function(){ logoEl.setAttribute('data-src', src); logoEl.src = src; requestAnimationFrame(()=>{ logoEl.style.opacity = '1'; }); };
+				img.onerror = function(){ const fb = new Image(); fb.onload = function(){ logoEl.setAttribute('data-src', images.simple); logoEl.src = images.simple; requestAnimationFrame(()=>{ logoEl.style.opacity = '1'; }); }; fb.onerror = function(){ logoEl.removeAttribute('src'); logoEl.style.opacity = '0'; }; fb.src = images.simple; };
+				img.src = src;
+			}
+
+			function debounce(fn, wait){ let t; return function(){ clearTimeout(t); t = setTimeout(()=>fn.apply(this, arguments), wait); } }
+
+			window.addEventListener('storage', function(e){ if(e.key === 'theme'){ applyTheme(); updateLogo(); } });
+
+			try{ const mq = window.matchMedia('(prefers-color-scheme: dark)'); if(mq && mq.addEventListener){ mq.addEventListener('change', function(){ if(!getStoredTheme()){ applyTheme(); updateLogo(); } }); } }catch(e){}
+
+			document.addEventListener('DOMContentLoaded', function(){
+				applyTheme(); updateLogo();
+				var themeBtn = document.getElementById('themeToggle');
+				var reloadBtn = document.getElementById('reloadBtn');
+
+				function renderIcons(){
+					var current = document.documentElement.getAttribute('data-theme') || getSystemTheme();
+					var themeIconSVG = current === 'dark' ? ('<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M11 4V2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1m7.36 3.05 1.41-1.42c.39-.39.39-1.02 0-1.41a.996.996 0 0 0-1.41 0l-1.41 1.42c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0M22 11h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1s-.45-1-1-1m-10 8c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1M5.64 7.05 4.22 5.64c-.39-.39-.39-1.03 0-1.41s1.03-.39 1.41 0l1.41 1.41c.39.39.39 1.03 0 1.41s-1.02.39-1.4 0m11.31 9.9c-.39.39-.39 1.03 0 1.41l1.41 1.41c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.41-1.41c-.38-.39-1.02-.39-1.41 0M2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1m3.64 6.78 1.41-1.41c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.03 0 1.41.38.39 1.02.39 1.41 0M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6"/></svg>') : ('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/></svg>');
+					var reloadSVG = '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8"/></svg>';
+				if(themeBtn) { themeBtn.innerHTML = themeIconSVG; themeBtn.title = (current === 'dark') ? 'Modo Claro' : 'Modo Escuro'; }
+				if(reloadBtn) { reloadBtn.innerHTML = reloadSVG; reloadBtn.title = 'Recarregar página'; }
 				}
 
-				function getSystemTheme(){
-					return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-				}
+				if(themeBtn){ themeBtn.addEventListener('click', function(){ var current = document.documentElement.getAttribute('data-theme') || getSystemTheme(); var next = current === 'dark' ? 'light' : 'dark'; try{ localStorage.setItem('theme', next); }catch(e){} applyTheme(); updateLogo(); renderIcons(); }); }
+				if(reloadBtn){ reloadBtn.addEventListener('click', function(){ location.reload(); }); }
+				renderIcons();
+			});
 
-						function applyTheme(){
-							const stored = getStoredTheme();
-							const theme = stored || getSystemTheme();
-							document.documentElement.setAttribute('data-theme', theme);
-							return theme;
-						}
+			window.addEventListener('resize', debounce(updateLogo, 120));
 
-				function getVariant(){
-					// breakpoint can be tuned
-					return window.innerWidth < 720 ? 'vertical' : 'horizontal';
-				}
+			window.__siteTheme = { current: function(){return document.documentElement.getAttribute('data-theme') || applyTheme();}, apply: function(theme){ if(theme === 'dark' || theme === 'light'){ try{ localStorage.setItem('theme', theme); }catch(e){} applyTheme(); updateLogo(); } }, clearStored: function(){ try{ localStorage.removeItem('theme'); }catch(e){} applyTheme(); updateLogo(); } };
+		})();
 
-				function updateLogo(){
-							const theme = document.documentElement.getAttribute('data-theme') || applyTheme();
-							const variant = getVariant();
-							let src = (images[variant] && images[variant][theme]) ? images[variant][theme] : images.simple;
-							// Only change if different
-							if(logoEl.getAttribute('data-src') === src) return;
-							// hide current logo smoothly
-							try{ logoEl.style.opacity = '0'; }catch(e){}
-
-							// Preload selected image to avoid flash/jumps
-							const img = new Image();
-							img.onload = function(){
-								logoEl.setAttribute('data-src', src);
-								logoEl.src = src;
-								// fade in
-								requestAnimationFrame(()=>{ logoEl.style.opacity = '1'; });
-							};
-							img.onerror = function(){
-								// fallback to simple logo, but preload it too
-								const fb = new Image();
-								fb.onload = function(){
-									logoEl.setAttribute('data-src', images.simple);
-									logoEl.src = images.simple;
-									requestAnimationFrame(()=>{ logoEl.style.opacity = '1'; });
-								};
-								fb.onerror = function(){
-									// give up — show nothing
-									logoEl.removeAttribute('src');
-									logoEl.style.opacity = '0';
-								};
-								fb.src = images.simple;
-							};
-							img.src = src;
-						}
-
-				// debounce helper
-				function debounce(fn, wait){
-					let t;
-					return function(){
-						clearTimeout(t);
-						t = setTimeout(()=>fn.apply(this, arguments), wait);
-					}
-				}
-
-				// react to storage changes (other tabs) for theme
-				window.addEventListener('storage', function(e){
-					if(e.key === 'theme'){
-						applyTheme();
-						updateLogo();
-					}
-				});
-
-				// If system theme changes and there is no stored preference, update
-				try{
-					const mq = window.matchMedia('(prefers-color-scheme: dark)');
-					if(mq && mq.addEventListener){
-						mq.addEventListener('change', function(){
-							if(!getStoredTheme()){
-								applyTheme();
-								updateLogo();
-							}
-						});
-					}
-				}catch(e){/* not supported */}
-
-				// Initial setup
-				document.addEventListener('DOMContentLoaded', function(){
-					applyTheme();
-					updateLogo();
-
-							// Wire up controls
-							var themeBtn = document.getElementById('themeToggle');
-							var reloadBtn = document.getElementById('reloadBtn');
-
-										function renderIcons(){
-											var current = document.documentElement.getAttribute('data-theme') || getSystemTheme();
-											// Theme button: show sun for dark mode (switch to light) or moon for light mode (switch to dark)
-											var themeIconSVG = current === 'dark' ? (
-												// sun (MUI)
-												'<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M11 4V2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1m7.36 3.05 1.41-1.42c.39-.39.39-1.02 0-1.41a.996.996 0 0 0-1.41 0l-1.41 1.42c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0M22 11h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1s-.45-1-1-1m-10 8c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1M5.64 7.05 4.22 5.64c-.39-.39-.39-1.03 0-1.41s1.03-.39 1.41 0l1.41 1.41c.39.39.39 1.03 0 1.41s-1.02.39-1.4 0m11.31 9.9c-.39.39-.39 1.03 0 1.41l1.41 1.41c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.41-1.41c-.38-.39-1.02-.39-1.41 0M2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1m3.64 6.78 1.41-1.41c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.41 1.41c-.39.39-.39 1.03 0 1.41.38.39 1.02.39 1.41 0M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6"/></svg>'
-											) : (
-												// moon (clean)
-												'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/></svg>'
-											);
-											var reloadSVG = '<svg width="24" height="24" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="currentColor" d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8"/></svg>';
-
-											if(themeBtn) {
-												themeBtn.innerHTML = themeIconSVG;
-												themeBtn.title = (current === 'dark') ? 'Modo Claro' : 'Modo Escuro';
-											}
-											if(reloadBtn) {
-												reloadBtn.innerHTML = reloadSVG;
-												reloadBtn.title = 'Recarregar página';
-											}
-										}
-
-							if(themeBtn){
-								themeBtn.addEventListener('click', function(){
-									var current = document.documentElement.getAttribute('data-theme') || getSystemTheme();
-									var next = current === 'dark' ? 'light' : 'dark';
-									try{ localStorage.setItem('theme', next); }catch(e){}
-									applyTheme(); updateLogo(); renderIcons();
-								});
-							}
-							if(reloadBtn){
-								reloadBtn.addEventListener('click', function(){ location.reload(); });
-							}
-
-							// initial render of icons
-							renderIcons();
-				});
-
-				// Update on resize with debounce
-				window.addEventListener('resize', debounce(updateLogo, 120));
-
-				// Expose a small API in case page integrator wants to toggle theme programmatically
-				window.__siteTheme = {
-					current: function(){return document.documentElement.getAttribute('data-theme') || applyTheme();},
-					apply: function(theme){
-						if(theme === 'dark' || theme === 'light'){
-							try{ localStorage.setItem('theme', theme); }catch(e){}
-							applyTheme(); updateLogo();
-						}
-					},
-					clearStored: function(){ try{ localStorage.removeItem('theme'); }catch(e){} applyTheme(); updateLogo(); }
-				};
-			})();
+		// Ensure the fixed demo banner does not overlap the page content on load
+		document.addEventListener('DOMContentLoaded', function(){
+			var bannerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--demo-banner-height')) || 60;
+			if(parseInt(getComputedStyle(document.body).paddingTop) < bannerHeight) document.body.style.paddingTop = bannerHeight + 'px';
+		});
 		</script>
 	</body>
 </html>
-
