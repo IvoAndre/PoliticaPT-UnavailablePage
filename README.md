@@ -35,6 +35,5 @@ Página responsiva e acessível para mostrar quando o serviço PoliticaPT está 
 │   ├── PoliticaPT Vertical Logo V2 For Dark Mode.png
 │   └── PoliticaPT Vertical Logo V2 For Light Mode.png
 ├── index.html           # Página principal
-├── LICENSE              # Licença MIT
 └── README.md           # Este arquivo
 ```
