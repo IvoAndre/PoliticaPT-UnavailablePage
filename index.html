@@ -253,7 +253,7 @@
 				}
 
 				if(themeBtn){ themeBtn.addEventListener('click', function(){ var current = document.documentElement.getAttribute('data-theme') || getSystemTheme(); var next = current === 'dark' ? 'light' : 'dark'; try{ localStorage.setItem('theme', next); }catch(e){} applyTheme(); updateLogo(); renderIcons(); }); }
-				if(reloadBtn){ reloadBtn.addEventListener('click', function(){ location.reload(); }); }
+				if (reloadBtn) { reloadBtn.addEventListener('click', function () { window.location.href = 'https://politicapt.rivodani.com';});}
 				renderIcons();
 			});
 
