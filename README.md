@@ -1,4 +1,5 @@
 # PoliticaPT - Página de Serviço Indisponível
+<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/ccff6501-e8d4-4e0c-9a0c-0c157384c4af" />
 
 ## 📋 Descrição
 
